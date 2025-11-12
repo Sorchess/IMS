@@ -43,6 +43,12 @@ class DatabaseConfig(BaseModel):
     )
 
 
+class SMTPConfig(BaseModel):
+    host: str
+    port: int
+    from_email: str
+
+
 class S3Config(BaseModel):
     access_key: str
     secret_key: str
@@ -59,6 +65,7 @@ class Settings(BaseSettings):
         env_prefix="APP_CONFIG__",
     )
     logging: LoggingConfig = LoggingConfig()
+    smtp: SMTPConfig
     redis: RedisConfig
     broker: BrokerConfig
     cookie: CookieConfig
