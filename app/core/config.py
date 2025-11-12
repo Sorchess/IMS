@@ -43,6 +43,14 @@ class DatabaseConfig(BaseModel):
     )
 
 
+class S3Config(BaseModel):
+    access_key: str
+    secret_key: str
+    endpoint_url: str
+    bucket_name: str
+    max_size: int
+
+
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(
         env_file=Path(__file__).parent.parent / ".env",
@@ -55,6 +63,7 @@ class Settings(BaseSettings):
     broker: BrokerConfig
     cookie: CookieConfig
     db: DatabaseConfig
+    s3: S3Config
 
 
 settings = Settings()
