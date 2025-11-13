@@ -14,10 +14,9 @@ class UserCreate(UserCredentials):
 
 
 class UserUpdate(UserCredentials):
-    email: EmailStr | None = Field(min_length=4, max_length=255)
-    avatar: str | None = Field(min_length=4, max_length=255)
-    username: str | None = Field(min_length=4, max_length=32)
-    password: str | None = Field(min_length=8, max_length=32)
+    email: EmailStr | None = Field(min_length=4, max_length=255, default=None)
+    username: str | None = Field(min_length=4, max_length=32, default=None)
+    password: str | None = Field(min_length=8, max_length=32, default=None)
 
 
 class UserResponce(BaseModel):
