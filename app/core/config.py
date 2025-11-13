@@ -29,6 +29,11 @@ class RedisConfig(BaseModel):
     url: RedisDsn
 
 
+class CookieConfig(BaseModel):
+    name: str
+    age: int
+
+
 class BrokerConfig(BaseModel):
     url: AmqpDsn
 
