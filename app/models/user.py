@@ -1,11 +1,14 @@
 from datetime import datetime
+from typing import TYPE_CHECKING
 
 from sqlalchemy import String, Boolean, DateTime, Integer
-from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.core.security import generate_uuid
 from app.models.base import Base
 
+if TYPE_CHECKING:
+    from .file import File
 
 DEFAULT_AVATAR_KEY = "default.webp"
 
@@ -35,4 +38,9 @@ class User(Base):
         DateTime(timezone=True),
         nullable=False,
         default=datetime.now,
+    )
+    files: Mapped[list["File"]] = relationship(
+        "File",
+        back_populates="author",
+        cascade="all, delete-orphan",
     )
