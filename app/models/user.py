@@ -8,7 +8,9 @@ from app.core.security import generate_uuid
 from app.models.base import Base
 
 if TYPE_CHECKING:
+    from .device import Device
     from .file import File
+
 
 DEFAULT_AVATAR_KEY = "default.webp"
 
@@ -38,6 +40,13 @@ class User(Base):
         DateTime(timezone=True),
         nullable=False,
         default=datetime.now,
+    )
+
+    # Relationships
+    devices: Mapped[list["Device"]] = relationship(
+        "Device",
+        back_populates="owner",
+        cascade="all, delete-orphan",
     )
     files: Mapped[list["File"]] = relationship(
         "File",
