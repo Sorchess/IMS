@@ -4,6 +4,7 @@ from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
 
+from app.api import api_router
 from app.core import settings, broker
 from app.core.db_manager import db_manager
 
