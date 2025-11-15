@@ -1,6 +1,10 @@
+# Frontend
+## Resources:
+- Vite React+TS starter template https://vite.dev/guide/
+- Vite features overview https://vite.dev/guide/features
+- React official docs https://react.dev/
+
 # Backend
-
-
 ## Issue RSA private key + public key pair
 
 ```shell
@@ -12,7 +16,6 @@ openssl genrsa -out jwt-private.pem 2048
 # Extract the public key from the key pair, which can be used in a certificate
 openssl rsa -in jwt-private.pem -outform PEM -pubout -out jwt-public.pem
 ```
-
 ## Docker debugging
 
 ```
@@ -22,8 +25,7 @@ docker compose up -d
 ```
 docker compose stop; docker compose rm -f; docker image rm ims-app; docker image rm ims-emails-worker;
 ```
-
-# Resources:
+## Resources:
 - gitignore for Python https://github.com/github/gitignore/blob/main/Python.gitignore
 - FastAPI events https://fastapi.tiangolo.com/advanced/events/
 - FastAPI lifespan events https://fastapi.tiangolo.com/advanced/events/#lifespan-function
