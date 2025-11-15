@@ -9,6 +9,9 @@ LOG_DEFAULT_FORMAT = (
     "[%(asctime)s.%(msecs)03d] %(module)10s:%(lineno)-3d %(levelname)-7s - %(message)s"
 )
 
+BASE_DIR = Path(__file__).parent.parent
+
+
 class LoggingConfig(BaseModel):
     log_level: Literal[
         "debug",
@@ -23,6 +26,10 @@ class LoggingConfig(BaseModel):
     @property
     def log_level_value(self) -> int:
         return logging.getLevelNamesMapping()[self.log_level.upper()]
+
+
+class APIPrefix(BaseModel):
+    prefix: str = "/api"
 
 
 class RedisConfig(BaseModel):
@@ -62,6 +69,19 @@ class S3Config(BaseModel):
     max_size: int
 
 
+class VerificationConfig(BaseModel):
+    ttl: int
+    attempts: int
+    code_len: int
+
+
+class JWTConfig(BaseModel):
+    private: Path = BASE_DIR / "certs" / "jwt-private.pem"
+    public: Path = BASE_DIR / "certs" / "jwt-public.pem"
+    algoritm: str
+    ttl: int
+
+
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(
         env_file=Path(__file__).parent.parent / ".env",
@@ -69,13 +89,16 @@ class Settings(BaseSettings):
         env_nested_delimiter="__",
         env_prefix="APP_CONFIG__",
     )
+    api: APIPrefix = APIPrefix()
     logging: LoggingConfig = LoggingConfig()
+    verification: VerificationConfig
     smtp: SMTPConfig
     redis: RedisConfig
     broker: BrokerConfig
     cookie: CookieConfig
     db: DatabaseConfig
     s3: S3Config
+    jwt: JWTConfig
 
 
 settings = Settings()
