@@ -4,6 +4,7 @@ __all__ = (
     "Device",
     "Telemetry",
     "File",
+)
 
 from .base import Base
 from .device import Device
