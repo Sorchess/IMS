@@ -1,0 +1,36 @@
+.chart {
+    width: 100%;
+    right: 0;
+    height: 300px;
+    display: block;
+}
+
+.gridLine {
+    stroke: #e5e7eb;
+}
+
+.cursorLine {
+    stroke: #9ca3af;
+    stroke-dasharray: 4 3;
+}
+
+.cpuDot {
+    fill: #3b82f6;
+    stroke: #ffffff;
+    stroke-width: 1;
+}
+
+.memDot {
+    fill: #10b981;
+    stroke: #ffffff;
+    stroke-width: 1;
+}
+
+.tooltipBg {
+    fill: rgba(15, 23, 42, 0.94);
+}
+
+.tooltipText {
+    font-size: 8px;
+    fill: #e5e7eb;
+}

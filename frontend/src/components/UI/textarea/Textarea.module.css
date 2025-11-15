@@ -1,0 +1,24 @@
+.textArea {
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 8px;
+    font-size: 1em;
+    border: none;
+    font-weight: 500;
+    font-family: inherit;
+    padding: 0.5rem;
+    color: var(--light-text);
+    background: none;
+    cursor: pointer;
+    resize: none;
+    outline: none;
+    overflow-wrap: break-word;
+    overflow: scroll;
+    text-transform: none;
+}
+
+.textArea:empty::before {
+    content: attr(data-placeholder);
+    color: var(--light-text);
+    opacity: 0.2;
+}

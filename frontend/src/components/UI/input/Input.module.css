@@ -1,0 +1,19 @@
+.input {
+    box-sizing: border-box;
+    border-radius: 12px;
+    border: 2px solid var(--primary-blue);
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    cursor: pointer;
+    background: white;
+    transition: all 0.3s ease;
+    box-shadow: var(--card-shadow);
+    outline: none;
+}
+
+.input:hover {
+    box-shadow: var(--card-hover-shadow);
+    border-color: var(--success);
+}

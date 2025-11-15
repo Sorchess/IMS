@@ -1,0 +1,38 @@
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 50px;
+    padding: 1rem;
+    font-size: 1.25rem;
+    background: white;
+    color: var(--primary-dark);
+    border-radius: 12px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    animation-delay: 0.4s;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    color: var(--primary-dark);
+}
+
+.btn * {
+    cursor: inherit;
+    pointer-events: auto;
+
+}
+
+@media (max-width: 576px) {
+    .btn {
+        padding: 0.875rem 2rem;
+        font-size: 1rem;
+    }
+}

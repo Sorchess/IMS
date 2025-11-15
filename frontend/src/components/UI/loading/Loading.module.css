@@ -1,0 +1,64 @@
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    height: 48px;
+}
+
+.cube {
+    width: 24px;
+    height: 24px;
+    background: linear-gradient(135deg, #3b82f6 0%, #10b981 100%);
+    border-radius: 4px;
+    animation: jump 1.2s ease-in-out infinite;
+    transform-origin: center bottom;
+}
+
+.cube_1 {
+    animation-delay: 0s;
+}
+.cube_2 {
+    animation-delay: 0.15s;
+}
+.cube_3 {
+    animation-delay: 0.3s;
+}
+
+/* Анимация прыжка */
+@keyframes jump {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+    }
+    20% {
+        transform: translateY(-32px) scale(1.05);
+    }
+    40% {
+        transform: translateY(0) scale(0.95);
+    }
+    50% {
+        transform: translateY(0) scale(1);
+    }
+}
+
+.label {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    user-select: none;
+}
+
+/* Уважение prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+    .cube {
+        animation: pulse 1.6s ease-in-out infinite;
+    }
+    @keyframes pulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.4; }
+    }
+    .overlay {
+        backdrop-filter: none;
+    }
+}
