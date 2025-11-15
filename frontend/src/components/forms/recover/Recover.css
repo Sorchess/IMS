@@ -1,0 +1,64 @@
+.recover-back-btn {
+    animation: fadeInUp 0.8s ease forwards;
+
+    position: absolute;
+    left: 40px;
+    top: 40px;
+    z-index: 99;
+}
+
+.recover-back-btn-icon {
+    width: 20px;
+    height: auto;
+    rotate: 180deg;
+}
+.recover-back-btn-text {
+    padding-left: 10px;
+    cursor: pointer;
+}
+.recover-card {
+    position: absolute;
+    align-self: center;
+    height: 100%;
+    width: 40%;
+    right: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    border-radius: 0;
+    background: var(--primary-gradient);
+
+}
+.recover-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 300px;
+}
+.recover-form-buttons {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 20px;
+}
+
+.recover-form-send-btn {
+    align-self: flex-start;
+}
+
+.recover-bg-img {
+    animation: fadeInUp 0.8s ease forwards;
+    right: calc(50% - 300px);
+}
+
+
+@media (max-width: 800px)  {
+    .recover-card {
+        width: 100%;
+    }
+    .recover-logo, .recover-bg-img {
+        display: none;
+    }
+}

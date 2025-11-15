@@ -1,0 +1,5 @@
+.navbar {
+    background: var(--primary-gradient);
+    padding: 1rem 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}

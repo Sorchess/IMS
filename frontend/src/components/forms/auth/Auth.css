@@ -1,0 +1,96 @@
+.auth-back-btn {
+    animation: fadeInUp 0.8s ease forwards;
+    position: absolute;
+    left: 40px;
+    top: 40px;
+    z-index: 99;
+    display: flex;
+}
+
+.auth-back-btn-icon {
+    width: 20px;
+    align-self: center;
+    height: auto;
+    fill: var(--primary-dark);
+    rotate: 180deg;
+}
+.auth-back-btn-text {
+    padding-left: 10px;
+    color: var(--primary-dark);
+    cursor: pointer;
+}
+
+.auth-card {
+    position: absolute;
+    color: var(--light-text);
+    height: 100%;
+    width: 40%;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--primary-gradient);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 300px;
+}
+
+.auth-form-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.auth-form-buttons Button {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+    transition: 0.3s ease-in-out transform;
+    color: var(--light-text);
+}
+
+.auth-form-buttons .active {
+    border-bottom: #646cff solid 1px;
+}
+
+.auth-form-buttons Button:hover {
+    box-shadow: none;
+    color: var(--light-text);
+    transform: scale(1) translateY(2px);
+}
+
+.auth-form-login {
+    align-self: flex-start;
+}
+
+.auth-form-register {
+    align-self: flex-start;
+}
+
+.auth-form-forgot-password {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.auth-bg-img {
+    animation: fadeInUp 0.8s ease forwards;
+
+    right: calc(50% - 300px);
+}
+
+@media (max-width: 800px)  {
+    .auth-card {
+        width: 100%;
+    }
+    .auth-logo, .auth-bg-img {
+        display: none;
+    }
+}
