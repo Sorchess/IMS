@@ -1,3 +1,6 @@
+networks:
+  prod:
+
 services:
   rabbitmq:
     image: rabbitmq:management-alpine
@@ -16,6 +19,8 @@ services:
       interval: 5s
       timeout: 3s
       retries: 5
+    networks:
+      - prod
 
   redis:
     image: redis:7-alpine
@@ -30,6 +35,8 @@ services:
       interval: 5s
       timeout: 3s
       retries: 3
+    networks:
+      - prod
 
   maildev:
     image: maildev/maildev
@@ -44,6 +51,8 @@ services:
       driver: "json-file"
       options:
         max-size: "1m"
+    networks:
+      - prod
   pg:
     image: postgres:18
     environment:
@@ -59,6 +68,8 @@ services:
       interval: 5s
       timeout: 3s
       retries: 3
+    networks:
+      - prod
 
   pgadmin:
     image: dpage/pgadmin4
@@ -70,6 +81,8 @@ services:
       - "5050:80"
     depends_on:
       - pg
+    networks:
+      - prod
 
   app:
     build:
@@ -84,6 +97,8 @@ services:
         condition: service_healthy
       pg:
         condition: service_healthy
+    networks:
+      - prod
 
   emails-worker:
     build:
@@ -95,6 +110,29 @@ services:
       app:
         condition: service_started
     restart: on-failure
+    networks:
+      - prod
+
+  frontend:
+    build:
+      context: ./frontend
+    networks:
+      - prod
+
+  nginx:
+    image: nginx:stable-alpine
+    ports:
+      - "80:80"
+    volumes:
+      - './nginx.conf:/etc/nginx/nginx.conf'
+    depends_on:
+      - app
+      - frontend
+    networks:
+      - prod
+
+
+
 
 volumes:
   pgdata:
