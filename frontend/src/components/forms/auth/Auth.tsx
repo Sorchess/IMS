@@ -73,7 +73,7 @@ const AuthForm = () => {
                     <Input type="text" placeholder="Электронная почта" value={email}
                            onChange={(e: ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}/>
                     Пароль
-                    <Input type="text" placeholder="Пароль" value={password}
+                    <Input type="password" placeholder="Пароль" value={password}
                            onChange={(e: ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}/>
                     {userCreated
                         ?

@@ -326,6 +326,7 @@
     color: #111827;
     margin-bottom: 0.25rem;
     overflow: hidden;
+    white-space: nowrap;
 }
 
 .dashboard__devices__card__label {
