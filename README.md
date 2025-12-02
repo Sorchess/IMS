@@ -16,14 +16,14 @@ openssl genrsa -out jwt-private.pem 2048
 # Extract the public key from the key pair, which can be used in a certificate
 openssl rsa -in jwt-private.pem -outform PEM -pubout -out jwt-public.pem
 ```
-## Docker debugging
+## Docker operations
 
 ```
-docker compose up -d
+docker compose up --build -d
 ```
 
 ```
-docker compose stop; docker compose rm -f; docker image rm ims-app; docker image rm ims-emails-worker;
+docker compose down
 ```
 ## Resources:
 - gitignore for Python https://github.com/github/gitignore/blob/main/Python.gitignore
